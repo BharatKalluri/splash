@@ -1,12 +1,12 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name={APP.NAME}
-GenericName={APP.GENERIC_NAME}
-Comment={APP.COMMENT}
-Categories={APP.CATEGORIES}
-Exec=com.github.{GITHUB.ORG}.{GITHUB.APP}
-Icon=com.github.{GITHUB.ORG}.{GITHUB.APP}
+Name=Splash
+GenericName=splash
+Comment=Background changer
+Categories=Utility
+Exec=com.github.BharatKalluri.splash
+Icon=com.github.BharatKalluri.splash
 Terminal=false
-Keywords={APP.KEYWORDS}
+Keywords=wallpaper;background
 X-GNOME-UsesNotifications=true

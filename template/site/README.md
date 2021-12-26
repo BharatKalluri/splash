@@ -1,8 +1,8 @@
-# {APP.NAME} web site source
+# Splash web site source
 
-[![{APP.NAME} logo](128.svg)](https://{GITHUB.ORG.ORIGINAL}.github.io/{GITHUB.APP.ORIGINAL})
+[![Splash logo](128.svg)](https://BharatKalluri.github.io/splash)
 
-## [Visit the site.](https://{GITHUB.ORG.ORIGINAL}.github.io/{GITHUB.APP.ORIGINAL)
+## [Visit the site.](https://BharatKalluri.github.io/{GITHUB.APP.ORIGINAL)
 
 ## Features:
 
