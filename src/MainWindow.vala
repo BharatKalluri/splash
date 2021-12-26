@@ -2,9 +2,6 @@ namespace Splash {
     public class MainWindow : Hdy.ApplicationWindow {
         public weak Splash.Application app { get; construct; }
 
-        // Widgets
-        public Splash.Widgets.HeaderBar toolbar;
-
         public const string ACTION_PREFIX = "win.";
         public const string ACTION_FULLSCREEN = "action_fullscreen";
         public const string ACTION_QUIT = "action_quit";
@@ -84,15 +81,8 @@ namespace Splash {
         // Layout.
 
         private void create_layout () {
-            // Unlike GTK, in Handy, the header bar is added to the window’s content area.
-            // See https://gnome.pages.gitlab.gnome.org/libhandy/doc/1-latest/HdyHeaderBar.html
-            toolbar = new Splash.Widgets.HeaderBar ();
-            var grid = new Gtk.Grid ();
-            grid.attach (toolbar, 0, 0);
-
-            // Add other components to go under the toolbar here.
-
-            add (grid);
+            var applicationWidget = new Splash.Widgets.ApplicationWidget();
+            add (applicationWidget);
         }
 
         // State preservation.
