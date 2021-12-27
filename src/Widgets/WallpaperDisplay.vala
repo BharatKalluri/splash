@@ -14,12 +14,11 @@ namespace Splash.Widgets {
         public async void set_random_image () throws Error {
             var unsplash_client = new UnSplashClient();
             var random_image_url_metadata = yield unsplash_client.random_unsplash_image_url ();
-            var random_image_stream = yield unsplash_client.get_wall_image (random_image_url_metadata.url);
-            var gdk_pix_buf = yield new Gdk.Pixbuf.from_stream_at_scale_async (random_image_stream, 1024, 768, true);
             File local_file = File.new_for_uri (random_image_url_metadata.url);
             yield local_file.copy_async (File.new_for_path(SPLASH_IMAGE_PATH), FileCopyFlags.OVERWRITE);
             Splash.Contractor.set_wallpaper_by_contract (File.new_for_path (SPLASH_IMAGE_PATH));
             wallpaper_loaded_signal (random_image_url_metadata);
+            var gdk_pix_buf = new Gdk.Pixbuf.from_file_at_scale (SPLASH_IMAGE_PATH, 1024, 768, true);
             this.set_from_pixbuf (gdk_pix_buf);
         }
 
