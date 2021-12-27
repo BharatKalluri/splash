@@ -18,6 +18,10 @@ namespace Splash.Widgets {
                     header_bar.loading_stop ();
                 }
             });
+
+            wallpaperDisplay.wallpaper_loaded_signal.connect ((image_metadata) => {
+                header_bar.set_subtitle ("Picture by " + image_metadata.user_name);
+            });
         }
     }
 }

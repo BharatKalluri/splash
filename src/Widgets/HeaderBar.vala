@@ -8,7 +8,8 @@ namespace Splash.Widgets {
         public HeaderBar () {
             Object (
                 title: _("Splash"),
-                has_subtitle: false,
+                has_subtitle: true,
+                subtitle: "Wallpapers from Unsplash!",
                 show_close_button: true,
                 hexpand: true
             );

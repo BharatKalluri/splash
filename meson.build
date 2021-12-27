@@ -39,7 +39,8 @@ executable(
     'src' / 'Widgets' / 'WallpaperDisplay.vala',
     'src' / 'Widgets' / 'ApplicationWidget.vala',
     'src' / 'Constants' / 'Colors.vala',
-    'src' / 'lib' / 'UnsplashClient.vala',
+    'src' / 'Lib' / 'UnsplashClient.vala',
+    'src' / 'Lib' / 'ContractorManager.vala',
     config_header,
     dependencies: [
       dependency('granite', version: '>=5.2.4'),

@@ -39,10 +39,11 @@ namespace Splash {
                 // the constructors. Anywhere else, they can be used interchangably.
                 app: application,
                 application: application,                    // DON’T use in constructors; won’t have been assigned yet.
-                height_request: 420,
-                width_request: 420,
+                height_request: 768,
+                width_request: 1024,
                 hide_titlebar_when_maximized: true,          // FIXME: This does not seem to have an effect. Why not?
-                icon_name: "com.github.BharatKalluri.splash"
+                icon_name: "com.github.BharatKalluri.splash",
+                resizable: false
             );
         }
 
