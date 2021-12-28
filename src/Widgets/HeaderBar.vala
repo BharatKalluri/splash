@@ -20,6 +20,9 @@ namespace Splash.Widgets {
             loading_spinner = new Gtk.Spinner();
             this.add (loading_spinner);
 
+            // Explicit start since the signal is sent before the widget creation
+            loading_start ();
+
             shuffleButton.clicked.connect (()=>{
                 wallpaper_shuffle_signal ();
             });
