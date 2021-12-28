@@ -22,6 +22,10 @@ namespace Splash.Widgets {
             wallpaperDisplay.wallpaper_loaded_signal.connect ((image_metadata) => {
                 header_bar.set_subtitle ("Picture by " + image_metadata.user_name);
             });
+
+            header_bar.wallpaper_download_signal.connect (() => {
+                wallpaperDisplay.on_wallpaper_download ();
+            });
         }
     }
 }

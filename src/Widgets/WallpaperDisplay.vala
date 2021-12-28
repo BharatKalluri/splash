@@ -29,5 +29,26 @@ namespace Splash.Widgets {
                 set_random_image.end (res);
             });
         }
+
+        public async void copy_file_to_pictures_folder () throws Error {
+            string destination_folder_path =  Path.build_filename (Environment.get_user_special_dir (UserDirectory.PICTURES)) + "/unsplash.jpg";
+            File local_file = File.new_for_path (SPLASH_IMAGE_PATH);
+            yield local_file.copy_async (File.new_for_path(destination_folder_path), FileCopyFlags.OVERWRITE); 
+        }
+
+        public void create_dialog (string text) {
+            var dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL, Gtk.MessageType.INFO, Gtk.ButtonsType.OK, text);
+            dialog.set_title (_("Status"));
+            dialog.run ();
+            dialog.destroy ();
+        }
+
+        public void on_wallpaper_download () {
+            var toast = new Granite.Widgets.Toast (_("Downloaded to your pictures folder!"));
+            copy_file_to_pictures_folder.begin ((obj, res) => {
+                copy_file_to_pictures_folder.end (res);
+                create_dialog ("Downloaded to your pictures folder!");
+            });
+        }
     }
 }
