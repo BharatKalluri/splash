@@ -48,7 +48,7 @@ namespace Splash.Widgets {
                 copy_file_to_pictures_folder.end (res);
                 GLib.Application.get_default ().send_notification (
                     "notify.app", 
-                    new Notification ("Downloaded to your pictures folder!")
+                    new Notification (_("Downloaded to your pictures folder!"))
                 );
             });
         }

@@ -17,15 +17,13 @@ namespace Splash.Widgets {
                 hexpand: true
             );
 
-            var shuffleButton = new Gtk.Button.with_label ("Shuffle!");
+            var shuffleButton = new Gtk.Button.with_label (_("Shuffle!"));
             this.add (shuffleButton);
 
             loading_spinner = new Gtk.Spinner();
             this.add (loading_spinner);
 
-            Gtk.Button download_button = new Gtk.Button.from_icon_name ("folder-download", Gtk.IconSize.LARGE_TOOLBAR) {
-                sensitive = false,
-            };
+            download_button = new Gtk.Button.from_icon_name ("folder-download", Gtk.IconSize.LARGE_TOOLBAR);
             this.pack_end (download_button);
 
             // Explicit start since the signal is sent before the widget creation
@@ -41,13 +39,13 @@ namespace Splash.Widgets {
         }
 
         public void loading_start() {
-            this.download_button.sensitive = true;
+            this.download_button.sensitive = false;
             this.loading_spinner.start ();
             return;
         }
 
         public void loading_stop () {
-            this.download_button.sensitive = false;
+            this.download_button.sensitive = true;
             this.loading_spinner.stop ();
             return;
         }
