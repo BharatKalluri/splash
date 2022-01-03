@@ -2,6 +2,7 @@ namespace Splash.Widgets {
     public class HeaderBar : Hdy.HeaderBar {
 
         public Gtk.Spinner loading_spinner;
+        public Gtk.Button download_button;
 
         public signal void wallpaper_shuffle_signal ();
 
@@ -22,7 +23,9 @@ namespace Splash.Widgets {
             loading_spinner = new Gtk.Spinner();
             this.add (loading_spinner);
 
-            var download_button = new Gtk.Button.from_icon_name ("folder-download-symbolic");
+            Gtk.Button download_button = new Gtk.Button.from_icon_name ("folder-download", Gtk.IconSize.LARGE_TOOLBAR) {
+                sensitive = false,
+            };
             this.pack_end (download_button);
 
             // Explicit start since the signal is sent before the widget creation
@@ -38,11 +41,15 @@ namespace Splash.Widgets {
         }
 
         public void loading_start() {
-            this.loading_spinner.start();
+            this.download_button.sensitive = true;
+            this.loading_spinner.start ();
+            return;
         }
 
         public void loading_stop () {
-            this.loading_spinner.stop();
+            this.download_button.sensitive = false;
+            this.loading_spinner.stop ();
+            return;
         }
     }
 }

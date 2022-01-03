@@ -44,10 +44,12 @@ namespace Splash.Widgets {
         }
 
         public void on_wallpaper_download () {
-            var toast = new Granite.Widgets.Toast (_("Downloaded to your pictures folder!"));
             copy_file_to_pictures_folder.begin ((obj, res) => {
                 copy_file_to_pictures_folder.end (res);
-                create_dialog ("Downloaded to your pictures folder!");
+                GLib.Application.get_default ().send_notification (
+                    "notify.app", 
+                    new Notification ("Downloaded to your pictures folder!")
+                );
             });
         }
     }
