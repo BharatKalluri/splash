@@ -5,7 +5,7 @@ namespace Splash.Widgets {
         public signal void wallpaper_loading_signal (bool is_loading);
         public signal void wallpaper_loaded_signal (UnSplashImageMetadata image_metadata);
 
-        private string SPLASH_IMAGE_PATH = Path.build_filename (Environment.get_user_data_dir ()) + "/splash.jpg";
+        private string SPLASH_IMAGE_PATH = Path.build_filename (Environment.get_user_cache_dir ()) + "/splash.jpg";
 
         construct {
             on_shuffle_signal ();
